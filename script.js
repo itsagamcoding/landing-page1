@@ -40,6 +40,54 @@ function circleMouseFollower() {
 circleMouseFollower();
 firstPageAnim();
 
+document
+  .querySelector("#menu")
+  .addEventListener("click", function expandMenu() {
+    var tl = gsap.timeline();
+
+    tl.to("#menu", {
+      x: -10,
+      opacity: 0,
+      ease: Expo.easeInOut,
+      // duration: 1,
+    })
+      .to("#menutags", {
+        opacity: 1,
+        duration: 1.5,
+        display: "block",
+        delay: -1,
+        ease: Expo.easeInOut,
+      })
+ 
+  });
+
+document.querySelector("#menutags").addEventListener("mouseleave",function(elem){
+  elem.style.display="none";
+  var t2 = gsap.timeline();
+
+  t2.to("#menu", {
+    x: 0,
+    opacity: 1,
+    ease: Expo.easeInOut,
+    // duration: 1,
+  });
+})
+
+
+
+
+document.querySelectorAll(".linktag").forEach(function(elem){
+  elem.addEventListener("mouseenter", function () {
+    elem.style.borderBottomColor = "white";
+  })
+});
+
+document.querySelectorAll(".linktag").forEach(function (elem) {
+  elem.addEventListener("mouseleave", function () {
+    elem.style.borderBottomColor ="black";
+  });
+});
+
 document.querySelectorAll(".elem").forEach(function (elem) {
   var rotate = 0;
   var diffrot = 0;
