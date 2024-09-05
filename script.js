@@ -61,8 +61,8 @@ document
  
   });
 
-document.querySelector("#menutags").addEventListener("mouseleave",function(elem){
-  elem.style.display="none";
+document.querySelector("#menutags").addEventListener("mouseleave",function(){
+  document.querySelector("#menutags").style.display="none";
   var t2 = gsap.timeline();
 
   t2.to("#menu", {
